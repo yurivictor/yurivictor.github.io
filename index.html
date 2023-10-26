@@ -14,10 +14,9 @@
         color: #2a2a2a;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         height: 100%;
+        margin: 0;
+        padding: 0;
         line-height: 1.4;
-        margin: 64px 32px;
-        max-width: 840px;
-        width: calc( 100% - 64px );
       }
       ol,
       ul {
@@ -44,107 +43,233 @@
         text-decoration: none;
         width: 100%;
       }
-      /* nav,
-      section {
-        border-top: 1px solid #6c6c6c;
-        display: flex;
-      } */
+
+.rest-of-page {
+  max-width: 840px;
+  padding: 64px 32px;
+  width: calc( 100% - 64px );
+}
+.weird-stuff {
+  border-bottom: 1px solid #000;
+}
+.weird-stuff, 
+.weird-stuff ul {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+.first,
+.second {
+  display: flex;
+  font-family: 'Helvetica';
+  font-size: 36px;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+}
+.first span,
+.second span {
+  display: block;
+}
+
+.first {
+  top: 0;
+}
+.second {
+  bottom: 0;
+}
+.weird-stuff h1 {
+  margin: 0;
+}
+.weird-stuff h2 {
+  left: 50%;
+  line-height: 1;
+  font-size: 64px;
+  margin: -32px 0 0 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%);
+}
+@keyframes pulse {
+  0% {
+    transform: scale( 1 );
+  }
+  40% {
+    transform: scale( 1.1 );
+  }
+  70% {
+    transform: scale( 1 );
+  }
+  100% {
+    transform: scale( 1 );
+  }
+}
+.weird-stuff ul {
+  /* animation: pulse 10s infinite linear; */
+  overflow: hidden;
+  top: 0;
+  position: absolute;
+}
+.weird-stuff li {
+  border-top: 1px dashed #000;
+  border-bottom: 1px dashed #000;
+  height: 200px;
+  position: absolute;
+  left: -50%;
+  top: calc( 50% - 100px );
+  width: 200%;
+}
+.weird-stuff ul li:nth-child(2) {
+  transform: rotate(40deg);
+}
+.weird-stuff li:nth-child(3) {
+  transform: rotate(80deg);
+}
+.weird-stuff li:nth-child(4) {
+  transform: rotate(120deg);
+}
+.weird-stuff li:nth-child(5) {
+  transform: rotate(160deg);
+}
+.weird-stuff li:nth-child(6) {
+  transform: rotate((200deg);
+}
+.weird-stuff li:nth-child(7) {
+  transform: rotate((240deg);
+}
+.weird-stuff li:nth-child(8) {
+  transform: rotate(280deg);
+}
+.weird-stuff li:nth-child(9) {
+  transform: rotate(320deg);
+}
+
+.weird-stuff p {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 50%;
+  width: 150px;
+}
     </style>
 </head>
 <body>
-  <header>
-    <h1><span>Creative technologist. New Yorker. Probably cooking.</h1>
-    <p><em>* all of my best work is the combined effort of great teams.</em></p>
+  <header class="weird-stuff">
+    <h1 class="first"><span>Always</span> <span>Curious</span></h1>
+    <ul role="presentation">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <h1 class="second"><span>Creative</span <span>Technologist</span></h1>
+    <h2>🥚</h2>
   </header>
-  <nav>
-    <h2>Index</h2>
-    <ul>
-      <li><a href="#me">About me</a></li>
-      <li><a href="#work">My work</a></li>
-      <li><a href="#writing">Writing</a></li>
-      <li><a href="#speaking">Speaking</a></li>
-      <li><a href="#extras">Side projects</a></li>
-      <li><a href="#philosophy">Philosophy</a></li>
-      <li><a href="#freelance">Freelance</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <section id="me">
-    <h2>About me</h2>
-    <h3>Current status</h3>
-    <p>I’m a senior editor at <a href="https://www.theatlantic.com/">The Atlantic</a> and on the board of directors for <a href="https://snd.org">The Society for News Design</a>.</p>
-    <h3>Recent work</h3>
-    <ul>
-      <li><a href="https://www.theatlantic.com/magazine/archive/2022/09/trump-administration-family-separation-policy-immigration/670604/">The secret history of the U.S. government’s family-separation policy (🏅 2023 Pulitzer Prize)</a></li>
-      <li><a href="https://www.theatlantic.com/the-uyghur-chronicles/">One by one, my friends were sent to the camps</a></li>
-      <li><a href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html">Answers to your current coronavirus questions powered by machine learning</a></li>
-      <li><a href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing">Working with universities to experiment with spatial computing</a></li>
-      <li><a href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html">Getting The New York Times Magazine to jump off the page</a></li>
-    </ul>
-  </section>
-  <section id="work">
-    <h2>My work</h2>
-
-    <h3>The New York Times, <span>2017-2020</span></h3>
-    <p>The Times brought me on as a consultant to reimagine what an <a href="https://rd.nytimes.com/">R&D team</a> could look like within a modern newsroom. We explored how emerging technologies can be applied in service of journalism working with companies such as <a href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html">Google</a>, <a href="https://www.newsprovenanceproject.com/">IBM</a>, and Meta to build real-world tools for journalists.</p>
-    <p>On my second tour, The Times brought me back for a quick project to build a new content mangement system for the magazine, but I ended up staying on for another year to build out a <a href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing">college mentorship program</a> before pivoting during the early pandemic to <a href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html">apply machine learning to aid reporters</a>.</p>
-
-    <h3>Vox.com, 2014-2017</h3>
-    <p>I co-founded <a href="https://www.vox.com">Vox.com</a>, drawing the original sketches on a napkin and hand coded the initial site daily. I worked closely with journalists and editors to design and build better storytelling tools including open source applications used by thousands of organizations.</p>
-    <blockquote>“The difference is that Vox is open to experimentation, it demands rapid iteration, and it puts technology-shaping people on par with word-shaping people. The difference is that, in many traditional newsrooms, changing the UI on a page &hellip; would have taken multiple meetings where the tech side’s knowledge would likely have been undervalued. It’s a corporate ethos and a permission structure that means good ideas don’t have to get bottled up. It’s being the kind of place that would build Chorus in the first place. That is Vox’s edge, and you can’t buy that off the shelf.” &mdash; <a href="http://www.niemanlab.org/2014/04/vox-is-publishing-some-of-its-stories-and-the-interviews-behind-them-in-parallel/">Nieman Lab</a></blockquote>
-
-    <h3>The Washington Post, 2011-2014</h3>
-    <p>At the Post, as User Experience director I led the charge to merge product teams into the newsroom where we rebuilt all platforms with a focus on innovation, including the commercially successful CMS Arc, an app for fact checking live video in real time, and Know More, which became the top vertical in three weeks.</p>
-    
-    <h3>Gannett, USA Today, 2008-2010</h3>
-    <p>I was the lead designer on a multi-year project to redesign and create a unified design system for more than 200 local newspaper, broadcast, and radio stations.</p>
-    
-  </section>
-  <section id="philosophy">
-    <h2>Philosophy</h2>
-    <ol>
-      <li><strong>Do great work with great people</strong>: Work on projects worth working on with teams worth working for. Organizations are design documents.</li>
-      <li><strong>Document and share everything</strong>: Sharing documentation says you believe everyone has something to contribute and gives people the knowledge to do so.</li>
-      <li><strong>Invest in support</strong>: Every person helping another person has a multiplier effect. Support allows us to focus on our strengths while improving each other.</li>
-      <li><strong>Focus on your Cs before your Ps</strong>: Put collaboration, communication, and community before processes, products, and plans. Culture is your product.</li>
-      <li><strong>Small teams get stuff done</strong>: The best products happen when multi-disciplinary teams are empowered and trusted to work together. The most important work comes from the bottom.</strong></li>
-      <li><strong>Ship fast, and iterate faster</strong>: Shipping is the beginning. The next steps are the most important, when we take the time to listen, learn, and improve.</li>
-      <li><strong>Take care of each other, and yourself</strong>: Nothing happens without us. If we’re not healthy we can’t help each other. We burn out alone or we spark together.</li>
-    </ol>
-  </section>
-  <section id="speaking">
-    <h2>Speaking</h2>
-    <p>I’m always open to speaking opportunities. I give talks on emerging technologies, the intersection of product and media, design thinking, organizational design, and workplace culture. Previously, I’ve presented at TedX Poynter, WordCamp USA, Society for News Design, and Online News Association.</p>
-    <ul>
-      <li><a href="https://www.youtube.com/watch?v=bYOOCG1gAaM">Empathy can fix the modern newsroom</a></li>
-      <li><a href="https://www.youtube.com/watch?v=NDShr8lwHOI">One year of Vox with Ezra Klein and Yuri Victor</a></li>
-      <li><a href="https://wordpress.tv/2013/07/29/yuri-victor-why-the-washington-post-uses-wordpress/">Why the Washington Post uses WordPress</a></li>
-    </ul>
-  </section>
-  <section id="writing">
-    <h2>Mentions</h2>
-    <ul>
-      <li><a href="http://www.poynter.org/2014/4-tips-for-creating-efficient-newsrooms-by-voxs-yuri-victor/264663/">Four tips for creating  better newsrooms</a></li>
-      <li><a href="https://product.voxmedia.com/2015/10/26/9610910/better-workplaces-forge-conference">Building more rounded companies and people</a></li>
-      <li><a href="https://nyustudio20.wordpress.com/2014/12/03/interview-with-vox-medias-yuri-victor/">Designing a happy, nimble, digital newsroom</a></li>
-    </ul>
-  </section>
-  <section id="extras">
-    <h2>Side projects</h2>
-    <ul>
-      <li><a href="https://www.dailydot.com/unclick/dude-gives-internet-control-personal-twitter-account/">Man asks rest of internet to tweet as him while he’s on vacation</a></li>
-      <li><a href="https://github.com/yurivictor/typebetter">Type better: Fix typography while a user types.</a></li>
-      <li><a href="https://www.youtube.com/watch?v=WrVZCF2pSyk&ab_channel=YuriVictor">Google Drive CMS prototype</a></li>
-      <li><a href="https://github.com/voxmedia/meme">Meme tool: Create social sharing images</a></li>
-    </ul>
-  </section>
-  <section id="freelance">
-    <h2>Freelance</h2>
-    <p>Interested in working together? <a href="mailto:hi@yurivictor.com">Send me a note</a> &mdash; especially if it involves news or food. I’ve worked with organizations including The New York Times, Stanford d.school, and Dagens Nyheter, on design and development, editorial strategy, and emerging technologies.</p>
-  </section>
-  <footer id="contact">
-    <h2>Contact</h2>
-    <p>Email me at <a href="mailto:hi@yurivictor.com">hi@yurivictor.com</a>. Or follow me on <a href="https://www.threads.net/@yurivictor">threads</a>.</p>
-  </footer>
+  <div class="rest-of-page">
+    <p><em>* all of my best work is the combined effort of great teams.</em></p>
+    <nav>
+      <h2>Index</h2>
+      <ul>
+        <li><a href="#me">About me</a></li>
+        <li><a href="#work">My work</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+        <li><a href="#extras">Side projects</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#freelance">Freelance</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <section class="section" id="me">
+      <div class="width-small">
+        <h2>About me</h2>
+      </div>
+      <div class="width-large"> 
+        <h2>Current status</h2>
+        <p>I’m a senior editor at <a href="https://www.theatlantic.com/">The Atlantic</a> and on the board of directors for <a href="https://snd.org">The Society for News Design</a>. I live in New York.</p>
+        <h3>Recent work</h3>
+        <ul>
+          <li><a href="https://www.theatlantic.com/magazine/archive/2022/09/trump-administration-family-separation-policy-immigration/670604/">The secret history of the U.S. government’s family-separation policy (🏅 2023 Pulitzer Prize)</a></li>
+          <li><a href="https://www.theatlantic.com/the-uyghur-chronicles/">One by one, my friends were sent to the camps</a></li>
+          <li><a href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html">Answers to your current coronavirus questions powered by machine learning</a></li>
+          <li><a href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing">Working with universities to experiment with spatial computing</a></li>
+          <li><a href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html">Getting The New York Times Magazine to jump off the page</a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="section" id="work">
+      <div class="width-small">
+        <h2>My work</h2>
+      </div>
+      <div class="width-large">
+        <h3>The New York Times, <span>2017-2020</span></h3>
+        <p>The Times brought me on as a consultant to reimagine what an <a href="https://rd.nytimes.com/">R&D team</a> could look like within a modern newsroom. We explored how emerging technologies can be applied in service of journalism working with companies such as <a href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html">Google</a>, <a href="https://www.newsprovenanceproject.com/">IBM</a>, and Meta to build real-world tools for journalists.</p>
+        <p>On my second tour, The Times brought me back for a quick project to build a new content mangement system for the magazine, but I ended up staying on for another year to build out a <a href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing">college mentorship program</a> before pivoting during the early pandemic to <a href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html">apply machine learning to aid reporters</a>.</p>
+  
+        <h3>Vox.com, 2014-2017</h3>
+        <p>I co-founded <a href="https://www.vox.com">Vox.com</a>, drawing the original sketches on a napkin and hand coded the initial site daily. I worked closely with journalists and editors to design and build better storytelling tools including open source applications used by thousands of organizations.</p>
+        <blockquote>“The difference is that Vox is open to experimentation, it demands rapid iteration, and it puts technology-shaping people on par with word-shaping people. The difference is that, in many traditional newsrooms, changing the UI on a page &hellip; would have taken multiple meetings where the tech side’s knowledge would likely have been undervalued. It’s a corporate ethos and a permission structure that means good ideas don’t have to get bottled up. It’s being the kind of place that would build Chorus in the first place. That is Vox’s edge, and you can’t buy that off the shelf.” &mdash; <a href="http://www.niemanlab.org/2014/04/vox-is-publishing-some-of-its-stories-and-the-interviews-behind-them-in-parallel/">Nieman Lab</a></blockquote>
+  
+        <h3>The Washington Post, 2011-2014</h3>
+        <p>At the Post, as User Experience director I led the charge to merge product teams into the newsroom where we rebuilt all platforms with a focus on innovation, including the commercially successful CMS Arc, an app for fact checking live video in real time, and Know More, which became the top vertical in three weeks.</p>
+        
+        <h3>Gannett, USA Today, 2008-2010</h3>
+        <p>I was the lead designer on a multi-year project to redesign and create a unified design system for more than 200 local newspaper, broadcast, and radio stations.</p>
+      </div>  
+    </section>
+    <section id="philosophy">
+      <h2>Philosophy</h2>
+      <ol>
+        <li><strong>Do great work with great people</strong>: Work on projects worth working on with teams worth working for. Organizations are design documents.</li>
+        <li><strong>Document and share everything</strong>: Sharing documentation says you believe everyone has something to contribute and gives people the knowledge to do so.</li>
+        <li><strong>Invest in support</strong>: Every person helping another person has a multiplier effect. Support allows us to focus on our strengths while improving each other.</li>
+        <li><strong>Focus on your Cs before your Ps</strong>: Put collaboration, communication, and community before processes, products, and plans. Culture is your product.</li>
+        <li><strong>Small teams get stuff done</strong>: The best products happen when multi-disciplinary teams are empowered and trusted to work together. The most important work comes from the bottom.</strong></li>
+        <li><strong>Ship fast, and iterate faster</strong>: Shipping is the beginning. The next steps are the most important, when we take the time to listen, learn, and improve.</li>
+        <li><strong>Take care of each other, and yourself</strong>: Nothing happens without us. If we’re not healthy we can’t help each other. We burn out alone or we spark together.</li>
+      </ol>
+    </section>
+    <section id="speaking">
+      <h2>Speaking</h2>
+      <p>I’m always open to speaking opportunities. I give talks on emerging technologies, the intersection of product and media, design thinking, organizational design, and workplace culture. Previously, I’ve presented at TedX Poynter, WordCamp USA, Society for News Design, and Online News Association.</p>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=bYOOCG1gAaM">Empathy can fix the modern newsroom</a></li>
+        <li><a href="https://www.youtube.com/watch?v=NDShr8lwHOI">One year of Vox with Ezra Klein and Yuri Victor</a></li>
+        <li><a href="https://wordpress.tv/2013/07/29/yuri-victor-why-the-washington-post-uses-wordpress/">Why the Washington Post uses WordPress</a></li>
+      </ul>
+    </section>
+    <section id="writing">
+      <h2>Mentions</h2>
+      <ul>
+        <li><a href="http://www.poynter.org/2014/4-tips-for-creating-efficient-newsrooms-by-voxs-yuri-victor/264663/">Four tips for creating  better newsrooms</a></li>
+        <li><a href="https://product.voxmedia.com/2015/10/26/9610910/better-workplaces-forge-conference">Building more rounded companies and people</a></li>
+        <li><a href="https://nyustudio20.wordpress.com/2014/12/03/interview-with-vox-medias-yuri-victor/">Designing a happy, nimble, digital newsroom</a></li>
+      </ul>
+    </section>
+    <section id="extras">
+      <h2>Side projects</h2>
+      <ul>
+        <li><a href="https://www.dailydot.com/unclick/dude-gives-internet-control-personal-twitter-account/">Man asks rest of internet to tweet as him while he’s on vacation</a></li>
+        <li><a href="https://github.com/yurivictor/typebetter">Type better: Fix typography while a user types.</a></li>
+        <li><a href="https://www.youtube.com/watch?v=WrVZCF2pSyk&ab_channel=YuriVictor">Google Drive CMS prototype</a></li>
+        <li><a href="https://github.com/voxmedia/meme">Meme tool: Create social sharing images</a></li>
+      </ul>
+    </section>
+    <section id="freelance">
+      <h2>Freelance</h2>
+      <p>Interested in working together? <a href="mailto:hi@yurivictor.com">Send me a note</a> &mdash; especially if it involves news or food. I’ve worked with organizations including The New York Times, Stanford d.school, and Dagens Nyheter, on design and development, editorial strategy, and emerging technologies.</p>
+    </section>
+    <footer id="contact">
+      <h2>Contact</h2>
+      <p>Email me at <a href="mailto:hi@yurivictor.com">hi@yurivictor.com</a>. Or follow me on <a href="https://www.threads.net/@yurivictor">threads</a>.</p>
+    </footer>
+    </div>
 </body>
 
