@@ -11,13 +11,16 @@
     <meta property="og:url" content="https://www.yurivictor.com">
     <style>
       body {
-        color: #2a2a2a;
+        background-color: #000;
+        color: #fff;
         font-family: "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         height: 100%;
         line-height: 1.4;
         margin: 64px 32px;
-        max-width: 840px;
         width: calc( 100% - 64px );
+      }
+      a {
+        color: white;
       }
       ol,
       ul {
@@ -28,8 +31,10 @@
       h3 {
         font-weight: 400;
       }
-      h1 {
+      h1,
+      header h2 {
         font-size: 6vw;
+        font-weight: 700;
         line-height: 1.2;
       }
       h2 {
@@ -39,7 +44,11 @@
         margin: 32px 0 8px 0;
       }
       header {
-        padding: 25% 0;
+        border-top: 1px solid white;
+        margin-top: 32px;
+      }
+      header h1 {
+        padding-top: 25%;
       }
       ol,
       p,
@@ -59,19 +68,22 @@
       nav {
         padding-top: 150px;
       }
+      .disclaimer {
+        padding: 50px 0 250px 0;
+      }
     </style>
 </head>
 <body>
   <header>
-    <h1>Hello. I'm Yuri Victor, a creative technologist living in New York.</h1>
-    <p>On this page: <a href="#me">About me</a>, <a href="#work">resume</a>, <a href="#writing">writing</a>, <a href="#speaking">speaking</a>, <a href="#freelance">freelance</a>, <a href="#contact">contact</a></p>
+    <p>Always curious. <br />New Yorker. <br /> <a href="mailto:hi@yurivictor.com">Hire me!</a></p>
+    <h1>Hello. I'm Yuri Victor. I like to <s>design</s>, <s>code</s>, <s>innovate</s>, make great things with great people.</h2>
+    <h2>I'm a creative technologist living in Brooklyn. Over the past two decades, I've redesigned hundreds of websites, built tools used by thousands of organizations, and contributed to three of the most successful content management systems.</h2>
+    <h2> I'm most well known for co-founding Vox.com, but I've worked with companies around the world including The New York Times, Metro, Dagens Nyheter, NRK, and Stanford d.School.</h2>
+    <h2>You can usually find me in the kitchen cooking or walking my dogs Rosie and Song.</h2>
+    <p class="disclaimer"><em>* All of my best work is the combined effort of great teams.</em></p>
   </header>
   <section id="me">
-    <h2>About me</h2>
-    <h3>Current status</h3>
-    <p>I’m a senior editor at <a href="https://www.theatlantic.com/">The Atlantic</a> and on the board of directors for <a href="https://snd.org">The Society for News Design</a>.</p>
-    <p><em>* All of my best work is the combined effort of great teams.</em></p>
-    <h3>Recent work</h3>
+    <h2>Recent work</h2>
     <ul>
       <li><a href="https://www.theatlantic.com/magazine/archive/2022/09/trump-administration-family-separation-policy-immigration/670604/">The secret history of the U.S. government’s family-separation policy (🏅 2023 Pulitzer Prize)</a></li>
       <li><a href="https://www.theatlantic.com/the-uyghur-chronicles/">One by one, my friends were sent to the camps (🏅 2022 Human Rights Press merit)</a></li>
@@ -83,7 +95,10 @@
     </ul>
   </section>
   <section id="work">
-    <h2>My work</h2>
+    <h2>Experience</h2>
+    <h3>The Atlantic, <span>2020-2023</span></h3>
+    <p>Hired and led a team of engineers and designers to work on The Atlantic’s most ambitious reporting, including tracking every migrant child separated, which won a 2023 Pulitzer. I worked across the organization to bring complex stories to life and help storytelling feel cohesive from inception through launch and beyond.</p>
+
 
     <h3>The New York Times, <span>2017-2020</span></h3>
     <p>The Times brought me on as a contractor to reimagine what an <a href="https://rd.nytimes.com/">R&D team</a> could look like within a modern newsroom. We explored how emerging technologies can be applied in service of journalism working with companies such as <a href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html">Google</a>, <a href="https://www.newsprovenanceproject.com/">IBM</a>, and Meta to build real-world tools for journalists.</p>
