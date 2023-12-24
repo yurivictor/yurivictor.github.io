@@ -46,7 +46,8 @@
       }
       h3 {
         font-size: 24px;
-        margin: 32px 0 0 0;
+        font-weight: 600;
+        margin: 0;
         line-height: 1.2;
       }
       header h1 {
@@ -84,6 +85,10 @@
       footer {
         margin-bottom: 32px;
       }
+      section p {
+        font-size: 18px;
+        margin: 16px 0 0 0;
+      }
       .grid {
         display: flex;
         gap: 32px;
@@ -103,7 +108,8 @@
         height: 100%;
         text-decoration: none;
       }
-      .work ul {
+      .grid ul,
+      .grid ol {
         display: flex;
         gap: 32px;
         flex-wrap: wrap;
@@ -111,21 +117,21 @@
       .work h3 {
         margin: 0;
       }
-      .work li {
+      .grid li {
         font-size: 24px;
         width: calc( 50% - 16px );
         padding-bottom: 32px;
       }
       .work img {
-        margin-bottom: 16px;
+        margin-bottom: 32px;
       }
-      .work p {
+      .small {
         color: #ccc;
         font-size: 14px;
         display: block;
         margin: 0;
         margin-top: auto;
-        padding-top: 16px;
+        padding-top: 32px;
         /* margin-bottom: auto; */
       }
       img {
@@ -155,7 +161,7 @@
   <header>
     <p>Always curious. <br />New Yorker. <br /> <a href="mailto:hi@yurivictor.com">Hire me!</a></p>
     <h1>Hello. I'm Yuri Victor. I like to <s>design</s>, <s>code</s>, <s>innovate</s>, make great things with great people.</h2>
-    <h2>I'm a creative technologist living in Brooklyn. I'm most well known for co-founding Vox.com, but over the past two decades, I've redesigned hundreds of websites, built tools used by thousands of organizations, and led teams at the largest media companies.</h2>
+    <h2>I'm a creative technologist living in Brooklyn. I'm most well known for co-founding Vox.com, but over the past two decades, I've redesigned hundreds of websites, built tools used by thousands of organizations, and led cross-functional teams at the largest media companies.</h2>
     <h2>You can usually find me in the kitchen cooking or walking my dogs, Rosie and Song.</h2>
     <p class="disclaimer"><em>* All of my best work is the combined effort of great teams.</em></p>
   </header>
@@ -169,21 +175,21 @@
           
           <a href="https://www.theatlantic.com/magazine/archive/2022/09/trump-administration-family-separation-policy-immigration/670604/">
             <img alt="A clipping that reads We need to take away the Children" src="images/work-1.avif">
-            <h3>An American Catastrophe</h3> 
-            <p>🏅 2023 Pulitzer Prize</p>
+            <h3>The secret history of the U.S. government’s family-separation policy</h3> 
+            <p class="small">🏅 2023 Pulitzer Prize</p>
           </a>
         </li>
         <li>
           <a href="https://www.theatlantic.com/the-uyghur-chronicles/">
             <img alt="Tahir Hamut Izgil" src="images/work-2.avif">
             <h3>One by one, my friends were sent to the camps</h3> 
-            <p>🏅 2022 Human Rights Press</p>
+            <p class="small">🏅 2022 Human Rights Press</p>
           </a></li>
         <li>
           <a href="https://www.theatlantic.com/science/archive/2023/01/unique-nostalgia-space/672639/">
             <img alt="" src="images/work-3.avif">
             <h3>The existential wonder of space</h3> 
-            <p>🏅 2023 American Astronomical Society</p>
+            <p class="small">🏅 2023 American Astronomical Society</p>
           </a>
         </li>
         <li>
@@ -203,6 +209,40 @@
             <img alt="Three NYT magazine covers" src="images/work-6.avif">
             <h3>Getting The New York Times Magazine to jump off the page</h3>
           </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="grid" id="philosophy">
+    <div class="grid-small">
+      <h2>Philosophy</h2>
+    </div>
+    <div class="grid-large">
+      <ul>
+        <!-- <li><strong>Do great work with great people</strong>: Work on projects worth working on with teams worth working for. Organizations are design documents.</li> -->
+        <li>
+          <h3>Ship fast, and iterate faster</h3>
+          <p>Shipping quickly gets real products in front of real people so you can listen, learn, and improve.</p>
+        </li>
+        <li>
+          <h3>Document and share</h3>
+          <p>Sharing says you believe everyone has something to contribute and gives people the knowledge to do so.</p>
+        </li>
+        <li>
+          <h3>Small teams get stuff done</h3>
+          <p>The best products happen when cross-functional teams are empowered and trusted to work together.</p>
+        </li>
+        <li>
+          <h3>Build systems</h3>
+          <p>A system-based approach goes beyond a feature to understand how to improve both internal and external experiences.</p>
+        </li>
+        <li>
+          <h3>Involve everyone</h3>
+          <p>Holistic approaches empower everyone to join the production process and learn from each other.</p>
+        </li>
+        <li>
+          <h3>Take care of each other</h3>
+          <p>Nothing happens without us. If we’re not healthy we can’t help each other. We burn out alone or we spark together.</p>
         </li>
       </ul>
     </div>
@@ -227,18 +267,6 @@
     <h3>Gannett, USA Today, 2008-2010</h3>
     <p>I was the lead designer on a multi-year project to create a unified design system for more than 200 local newspaper, broadcast, and radio stations.</p>
     
-  </section>
-  <section id="philosophy">
-    <h2>Philosophy</h2>
-    <ol>
-      <li><strong>Do great work with great people</strong>: Work on projects worth working on with teams worth working for. Organizations are design documents.</li>
-      <li><strong>Document and share everything</strong>: Sharing documentation says you believe everyone has something to contribute and gives people the knowledge to do so.</li>
-      <!-- <li><strong>Invest in support</strong>: Every person helping another person has a multiplier effect. Support allows us to focus on our strengths while improving each other.</li> -->
-      <!-- <li><strong>Focus on your Cs before your Ps</strong>: Put collaboration, communication, and community before processes, products, and plans. Culture is your product.</li> -->
-      <li><strong>Small teams get stuff done</strong>: The best products happen when multi-disciplinary teams are empowered and trusted to work together. The most important work comes from the bottom.</strong></li>
-      <li><strong>Ship fast, and iterate faster</strong>: Shipping is the beginning. The next steps are the most important, when we take the time to listen, learn, and improve.</li>
-      <li><strong>Take care of each other, and yourself</strong>: Nothing happens without us. If we’re not healthy we can’t help each other. We burn out alone or we spark together.</li>
-    </ol>
   </section>
   <section id="speaking">
     <h2>Speaking</h2>
