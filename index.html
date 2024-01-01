@@ -50,6 +50,9 @@
         margin: 0;
         line-height: 1.2;
       }
+      h3 span {
+        font-weight: 400;
+      }
       header h1 {
         padding-top: 25%;
       }
@@ -85,7 +88,7 @@
       footer {
         margin-bottom: 32px;
       }
-      section p {
+      p {
         font-size: 18px;
         margin: 16px 0 0 0;
       }
@@ -94,10 +97,13 @@
         gap: 32px;
       }
       .grid-small {
-        width: 30%;
+        width: calc( 100% / 3 );
+      }
+      .grid-medium {
+        width: calc( 100% / 3 );
       }
       .grid-large {
-        width: 70%;
+        width: calc( ( 100% / 3 ) * 2 );
       }
       .grid-half {
         width: 50%;
@@ -108,8 +114,8 @@
         height: 100%;
         text-decoration: none;
       }
-      .grid ul,
-      .grid ol {
+      .grid-large ul,
+      .grid-large ol {
         display: flex;
         gap: 32px;
         flex-wrap: wrap;
@@ -117,7 +123,7 @@
       .work h3 {
         margin: 0;
       }
-      .grid li {
+      .grid-large li {
         font-size: 24px;
         width: calc( 50% - 16px );
         padding-bottom: 32px;
@@ -138,16 +144,48 @@
         max-width: 100%;
         width: 100%;
       }
+      .experience {
+        padding-bottom: 32px;
+      }
+      .experience h3 {
+        margin-top: 32px;
+      }
+      .experience h3:first-child {
+        margin-top: 0;
+      }
+      .extras a {
+        font-size: 24px;
+        text-decoration: none;
+      }
+      .extras li {
+        padding: 16px 0;
+      }
+      .contact {
+        padding-bottom: 40%;
+      }
+      .contact p:first-child {
+        margin-top: 0;
+      }
       @media ( max-width: 820px ) {
+        h2 {
+          margin-bottom: 16px;
+        }
         h3 {
-          font-size: 18px;
-          margin: 32px 0 8px 0;
+          font-size: 16px;
+          margin: 16px 0 8px 0;
           line-height: 1.2;
+        }
+        p {
+          font-size: 14px;
+        }
+        li {
+          padding-bottom: 16px;
         }
         .grid {
           display: block;
         }
         .grid-small,
+        .grid-medium,
         .grid-large {
           width: 100%;
         }
@@ -159,9 +197,9 @@
 </head>
 <body>
   <header>
-    <p>Always curious. <br />New Yorker. <br /> <a href="mailto:hi@yurivictor.com">Hire me!</a></p>
-    <h1>Hello. I'm Yuri Victor. I like to <s>design</s>, <s>code</s>, <s>innovate</s>, make great things with great people.</h2>
-    <h2>I'm a creative technologist living in Brooklyn. I'm most well known for co-founding Vox.com, but over the past two decades, I've redesigned hundreds of websites, built tools used by thousands of organizations, and led cross-functional teams at the largest media companies.</h2>
+    <p>Always curious. <br />New Yorker. <br /> <a href="#contact">Hire me!</a></p>
+    <h1>Hello. I’m Yuri Victor. I like to <s>design</s>, <s>code</s>, <s>innovate</s>, make great things with great people.</h2>
+    <h2>I’m a creative technologist living in Brooklyn. While I’m most well known for co-founding Vox.com, over the past two decades I’ve redesigned hundreds of websites, built tools used by thousands of organizations, and led cross-functional teams at the largest media companies.</h2>
     <h2>You can usually find me in the kitchen cooking or walking my dogs, Rosie and Song.</h2>
     <p class="disclaimer"><em>* All of my best work is the combined effort of great teams.</em></p>
   </header>
@@ -247,60 +285,66 @@
       </ul>
     </div>
   </section>
-  <section id="work">
-    <h2>Experience</h2>
-    <h3>The Atlantic, <span>2020-2023</span></h3>
+  <section class="grid experience" id="work">
+    <div class="grid-small">
+      <h2>Experience</h2>
+    </div>
+    <div class="grid-large">
+    <h3>The Atlantic, <span>Senior Editor</span></h3>
     <p>Hired and led a team of engineers and designers to work on The Atlantic’s most ambitious reporting, including tracking every migrant child separated, which won a 2023 Pulitzer. I worked across the organization to bring complex stories to life and help storytelling feel cohesive from inception through launch and beyond.</p>
 
 
-    <h3>The New York Times, <span>2017-2020</span></h3>
+    <h3>The New York Times, <span>Creative Technologist</span></h3>
     <p>The Times brought me on as a contractor to reimagine what an <a href="https://rd.nytimes.com/">R&D team</a> could look like within a modern newsroom. We explored how emerging technologies can be applied in service of journalism working with companies such as <a href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html">Google</a>, <a href="https://www.newsprovenanceproject.com/">IBM</a>, and Meta to build real-world tools for journalists.</p>
     <p>On my second tour, The Times asked me to build a new content mangement system for the magazine, but I ended up staying on for another year to create a <a href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing">college mentorship program</a> before pivoting during the early pandemic to <a href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html">apply machine learning to aid reporters</a>.</p>
 
-    <h3>Vox.com, 2014-2017</h3>
-    <p>I co-founded <a href="https://www.vox.com">Vox.com</a>, drawing the original sketches on a napkin and hand coded the initial site daily. I worked closely with journalists and editors to design and build better storytelling tools including open source applications used by thousands of organizations.</p>
+    <h3>Vox.com, <span>Co-founder</span></h3>
+    <p>I co-founded <a href="https://www.vox.com">Vox.com</a>, drawing the original sketches on a napkin and hand coded the initial site daily. I worked closely with journalists to design and build more than 50 tools including open source applications used by thousands of organizations. While there I started and led various teams including data, graphics, tools, and storytelling.</p>
     <blockquote>“The difference is that Vox is open to experimentation, it demands rapid iteration, and it puts technology-shaping people on par with word-shaping people. The difference is that, in many traditional newsrooms, changing the UI on a page &hellip; would have taken multiple meetings where the tech side’s knowledge would likely have been undervalued. It’s a corporate ethos and a permission structure that means good ideas don’t have to get bottled up. It’s being the kind of place that would build Chorus in the first place. That is Vox’s edge, and you can’t buy that off the shelf.” &mdash; <a href="http://www.niemanlab.org/2014/04/vox-is-publishing-some-of-its-stories-and-the-interviews-behind-them-in-parallel/">Nieman Lab</a></blockquote>
 
-    <h3>The Washington Post, 2011-2014</h3>
-    <p>At the Post, as User Experience director I led the charge to merge product teams into the newsroom where we rebuilt all platforms with a focus on innovation, including the commercially successful CMS Arc, <a href="https://readwrite.com/truth-teller-an-automated-political-fact-checking-app/">an app for fact checking live video in real time</a>, and <a href="https://www.buzzfeednews.com/article/jwherrman/memo-it-took-three-weeks-for-the-washington-posts-viral-site">Know More</a>, which became the top vertical in three weeks.</p>
-    
-    <h3>Gannett, USA Today, 2008-2010</h3>
-    <p>I was the lead designer on a multi-year project to create a unified design system for more than 200 local newspaper, broadcast, and radio stations.</p>
-    
+    <h3>The Washington Post, <span>Director of User Experience</span></h3>
+    <p>Rethought all digital systems with a focus on innovation, including creating what would become the company’s largest revenue driver, its CMS, Arc. I managed a staff of 12 engineers that invented dozens of new products and tools, such as <a href="https://www.buzzfeednews.com/article/jwherrman/memo-it-took-three-weeks-for-the-washington-posts-viral-site">Know More</a>, which became the top vertical in three weeks, our live platforms, which averaged more traffic than the rest of the site combined, and <a href="https://readwrite.com/truth-teller-an-automated-political-fact-checking-app/">an app for fact checking live video in real time</a></p>
+    </div>
   </section>
-  <section id="speaking">
-    <h2>Speaking</h2>
-    <p>I’m always open to speaking opportunities. I give talks on emerging technologies, the intersection of product and media, design thinking, organizational design, and workplace culture. Previously, I’ve presented at TedX Poynter, WordCamp USA, Society for News Design, and Online News Association.</p>
-    <ul>
-      <li><a href="https://www.youtube.com/watch?v=bYOOCG1gAaM">Empathy can fix the modern newsroom</a></li>
-      <li><a href="https://www.youtube.com/watch?v=NDShr8lwHOI">One year of Vox with Ezra Klein and Yuri Victor</a></li>
-      <li><a href="https://wordpress.tv/2013/07/29/yuri-victor-why-the-washington-post-uses-wordpress/">Why the Washington Post uses WordPress</a></li>
-    </ul>
+  <section class="grid extras" id="extras">
+    <div class="grid-medium">
+      <h2>Speaking</h2>
+      <!-- <p>I’m always open to speaking opportunities. I give talks on emerging technologies, the intersection of product and media, design thinking, organizational design, and workplace culture. Previously, I’ve presented at TedX Poynter, WordCamp USA, Society for News Design, and Online News Association.</p> -->
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=bYOOCG1gAaM">Empathy can fix the modern newsroom</a></li>
+        <li><a href="https://www.youtube.com/watch?v=NDShr8lwHOI">One year of Vox with Ezra Klein and Yuri Victor</a></li>
+        <li><a href="https://wordpress.tv/2013/07/29/yuri-victor-why-the-washington-post-uses-wordpress/">Why the Washington Post uses WordPress</a></li>
+      </ul>
+    </div>
+    <div class="grid-medium">
+      <h2>Mentions</h2>
+      <ul>
+        <li><a href="http://www.poynter.org/2014/4-tips-for-creating-efficient-newsrooms-by-voxs-yuri-victor/264663/">Four tips for creating  better newsrooms</a></li>
+        <li><a href="https://product.voxmedia.com/2015/10/26/9610910/better-workplaces-forge-conference">Building more rounded companies and people</a></li>
+        <li><a href="https://nyustudio20.wordpress.com/2014/12/03/interview-with-vox-medias-yuri-victor/">Designing a happy, nimble, digital newsroom</a></li>
+      </ul>
+    </div>
+    <div class="grid-medium">
+      <h2>Side projects</h2>
+      <ul>
+        <li><a href="https://www.dailydot.com/unclick/dude-gives-internet-control-personal-twitter-account/">Man asks rest of internet to tweet as him</a></li>
+        <li><a href="https://github.com/yurivictor/typebetter">Type better: Auto-correct punctuation while a user types.</a></li>
+        <li><a href="https://github.com/voxmedia/meme">Meme tool: Create social sharing images</a></li>
+      </ul>
+    </div>
   </section>
-  <section id="writing">
-    <h2>Mentions</h2>
-    <ul>
-      <li><a href="http://www.poynter.org/2014/4-tips-for-creating-efficient-newsrooms-by-voxs-yuri-victor/264663/">Four tips for creating  better newsrooms</a></li>
-      <li><a href="https://product.voxmedia.com/2015/10/26/9610910/better-workplaces-forge-conference">Building more rounded companies and people</a></li>
-      <li><a href="https://nyustudio20.wordpress.com/2014/12/03/interview-with-vox-medias-yuri-victor/">Designing a happy, nimble, digital newsroom</a></li>
-    </ul>
-  </section>
-  <section id="extras">
-    <h2>Side projects</h2>
-    <ul>
-      <li><a href="https://www.dailydot.com/unclick/dude-gives-internet-control-personal-twitter-account/">Man asks rest of internet to tweet as him while he’s on vacation</a></li>
-      <li><a href="https://github.com/yurivictor/typebetter">Type better: Fix typography while a user types.</a></li>
-      <li><a href="https://www.youtube.com/watch?v=WrVZCF2pSyk&ab_channel=YuriVictor">Google Drive CMS prototype</a></li>
-      <li><a href="https://github.com/voxmedia/meme">Meme tool: Create social sharing images</a></li>
-    </ul>
-  </section>
-  <section id="freelance">
+  <!-- <section id="freelance">
     <h2>Freelance</h2>
     <p>Interested in working together? <a href="mailto:hi@yurivictor.com">Send me a note</a> &mdash; especially if it involves news or food. I’ve worked with organizations including The New York Times, NRK, and Dagens Nyheter, on design and development, editorial strategy, and emerging technologies.</p>
-  </section>
-  <footer id="contact">
-    <h2>Contact</h2>
-    <p>Email me at <a href="mailto:hi@yurivictor.com">hi@yurivictor.com</a>. Or follow me on <a href="https://www.threads.net/@yurivictor">threads</a>.</p>
+  </section> -->
+  <footer class="grid contact" id="contact">
+    <div class="grid-small">
+      <h2>Contact</h2>
+    </div>
+    <div class="grid-large">
+      <p>Interested in working together? <a href="mailto:hi@yurivictor.com">Send me a note</a>. I’m interested in contract, part-time, or full time. I’ve worked with organizations including The New York Times, NRK, and Dagens Nyheter, on design and development, editorial strategy, and emerging technologies.</p>
+      <p>Follow me on <a href="https://www.threads.net/@yurivictor">threads</a> or <a href="https://www.linkedin.com/in/yurivictor/">LinkedIn.</a></p>
+    </div>
   </footer>
 </body>
 
