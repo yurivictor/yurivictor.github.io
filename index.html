@@ -165,11 +165,10 @@
         font-size: 18px;
       }
       .text-white {
-        color: var(--main-text-color);
+        color: var(--main-text-color) !important;
       }
       @media (max-width: 820px) {
         section,
-        footer,
         .extras,
         .extras .grid-small {
           margin: 0 auto;
@@ -213,7 +212,7 @@
     </style>
   </head>
   <body>
-    <header class="header section">
+    <header class="header section" id="header">
       <style>
         .header .text-large {
           padding: 36% 0;
@@ -559,7 +558,7 @@
         </ul>
       </div>
     </div>
-    <footer class="contact section" id="contact">
+    <section class="contact section" id="contact">
       <style>
         .contact {
           align-items: center;
@@ -602,6 +601,32 @@
           <a href="mailto:hi@yurivictor.com">Email me</a>
         </button>
       </p>
+    </section>
+    <footer class="section footer">
+      <style>
+        .footer {
+          border-top-color: var(--secondary-background-color);
+          margin-bottom: var(--main-padding);
+        }
+        .footer a {
+          color: var(--secondary-text-color);
+          font-size: 14px;
+          text-decoration: none;
+        }
+        .footer .grid {
+          gap: var(--main-padding);
+        }
+        .footer li:last-child {
+          margin-left: auto;
+        }
+      </style>
+      <ul class="grid">
+        <li><a class="text-white" href="mailto:hi@yurivictor.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/yurivictor/">LinkedIn</a></li>
+        <li><a href="https://www.threads.net/@yurivictor">Threads</a></li>
+        <li><a href="https://www.instagram.com/yurivictor">Instagram</a></li>
+        <li><a href="#header">Back to top ↑</a></li>
+      </ul>
     </footer>
   </body>
 </html>
