@@ -35,6 +35,7 @@
         --main-text-color: rgba(255, 255, 255, 1);
         --secondary-background-color: rgba(255, 255, 255, 0.4);
         --secondary-text-color: rgba(255, 255, 255, 0.6);
+        --secondary-padding: 64px;
       }
       ::selection {
         background-color: rgba(255, 221, 91, 0.6);
@@ -54,14 +55,15 @@
       }
       h1,
       h2,
+      h3,
       ul,
       ol,
       p {
         margin: 0;
         padding: 0;
       }
-      ul,
-      ol {
+      ol,
+      ul {
         list-style: none;
       }
       .section {
@@ -71,89 +73,13 @@
         max-width: 100%;
         width: 1280px;
       }
-      .grid {
-        display: flex;
-      }
-      .grid-small {
-        width: calc(100% / 3);
-      }
-      .grid-medium {
-        width: calc(100% / 3);
-      }
-      .grid-large {
-        padding-left: 16px;
-        width: calc((100% / 3) * 2);
-      }
-      .grid-half {
-        width: 50%;
-      }
-      .work a {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        text-decoration: none;
-      }
-      .grid-large ul,
-      .grid-large ol {
-        display: flex;
-        gap: 32px;
-        flex-wrap: wrap;
-      }
-      .work h3 {
-        margin: 0;
-      }
-      .grid-large li {
-        font-size: 24px;
-        width: calc(50% - 16px);
-        padding-bottom: 32px;
-      }
-      .work img {
-        margin-bottom: 32px;
-      }
-      .small {
-        color: #ccc;
-        font-size: 14px;
-        display: block;
-        margin: 0;
-        margin-top: auto;
-        padding-top: var(--main-padding);
-      }
-      img {
-        max-width: 100%;
-        width: 100%;
-      }
-      .experience {
-        padding-bottom: var(--main-padding);
-      }
-      .experience h3,
-      .skills h3 {
-        margin-top: var(--main-padding);
-      }
-      .experience h3:first-child,
-      .skills h3:first-child {
-        margin-top: 0;
-      }
-      .extras .grid-small {
-        border-top: 1px solid white;
-        margin: 0 auto 0 auto;
-      }
-      .extras {
-        gap: var(--main-padding);
-      }
-      .extras a {
-        font-size: 24px;
-        text-decoration: none;
-      }
-      .extras ul {
-        display: block;
-      }
-      .extras li {
-        padding: 16px 0;
-        width: 100%;
+      .text-huge {
+        font-family: "ABC Gaisyr", "Times New Roman", Times, serif;
+        font-size: 64px;
       }
       .text-large,
       .text-regular {
-        font-size: 3.2vw;
+        font-size: 36px;
       }
       .text-regular {
         font-family: "ABC Gaisyr", "Times New Roman", Times, serif;
@@ -166,45 +92,29 @@
         color: var(--main-text-color) !important;
       }
       @media (max-width: 820px) {
-        section,
-        .extras,
-        .extras .grid-small {
-          margin: 0 auto;
-          padding-top: var(--main-padding);
+        .text-huge,
+        .text-huge span {
+          font-size: 24px;
         }
-        h2 {
-          margin-bottom: 16px;
+        .text-large {
+          font-size: 24px;
         }
-        h3 {
-          font-size: 16px;
-          margin: 16px 0 8px 0;
-          line-height: 1.2;
-        }
-        .text-large,
         .text-regular {
-          font-size: 5vw;
+          font-size: 18px;
         }
         .text-large br {
           display: none;
         }
+        .content {
+          margin-left: 0 !important;
+        }
+        .footer ul {
+          display: block !important;
+        }
+
         p {
           font-size: 14px;
           line-height: 1.4;
-        }
-        li {
-          padding-bottom: 16px;
-        }
-        .grid {
-          display: block;
-        }
-        .grid-small,
-        .grid-medium,
-        .grid-large {
-          width: 100%;
-        }
-        .grid-large {
-          margin-top: var(--main-padding);
-          padding-left: 0;
         }
       }
     </style>
@@ -231,329 +141,445 @@
       <h2 class="text-regular">
         <span class="text-white">Hello. I’m Yuri Victor</span>, a creative
         technologist living in New York. Over the past two decades I’ve designed
-        hundreds of tools, built software used by thousands of organizations,
-        and led cross-functional teams at the largest media companies, including
-        co-founding Vox.com. <br /><br />
+        dozens of ground-breaking tools, built software used by hundreds of
+        organizations, and led cross-functional teams at the largest media
+        companies, including co-founding Vox.com. <br /><br />
         How can I help you? <a href="#contact">Let’s connect</a> and find out.
       </h2>
     </header>
-    <section class="grid section work" id="work">
+    <nav class="section toc" id="toc">
       <style>
-        .work a {
+        ol {
+          font-family: Helvetica, Arial, sans-serif;
+        }
+        input {
+          display: none;
+        }
+        /* Style for list items */
+        ol > li {
+          border-bottom: 1px solid var(--secondary-background-color);
+          padding: var(--main-padding) 0;
+        }
+        .toc ol li:last-child {
+          border-bottom: none;
+        }
+
+        /* Style for the content label */
+        label {
+          cursor: pointer;
+          display: inline-block;
+          width: 100%;
+        }
+        label span {
+          display: inline-block;
+          font-family: Helvetica, Arial, sans-serif; /* Set font for numbers */
+          font-weight: 700; /* Bold font for numbers */
+          font-size: 64px;
+          width: 20%;
+        }
+        .content {
+          display: none;
+          margin-left: 20%;
+          padding: var(--secondary-padding) 0;
+        }
+        input:checked + .content {
+          display: grid;
+        }
+        .link {
+          border-bottom: 1px solid var(--secondary-background-color);
+          display: block;
+          padding: var(--main-padding) 0;
           text-decoration: none;
         }
-        .work .text-small {
-          padding-top: var(--main-padding);
+        .links .link:last-child {
+          border-bottom: 0;
+        }
+        .skills .text-regular,
+        .speaking .text-regular {
+          color: var(--secondary-text-color);
         }
       </style>
-      <div class="grid-small">
-        <h2 class="text-large">Recent work</h2>
-        <p class="text-small">
-          * All of my best work is <br />
-          the combined effort <br />
-          of great teams.
-        </p>
-      </div>
-      <div class="grid-large">
-        <ul>
-          <li>
-            <a
-              href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html"
-            >
-              <img alt="" src="images/work-4.avif" />
-              <h3>
-                Answers to coronavirus questions powered by machine learning
-              </h3>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing"
-            >
-              <img alt="" src="images/work-5.avif" />
-              <h3>
-                Working with universities to experiment with spatial computing
-              </h3>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html"
-            >
-              <img alt="Three NYT magazine covers" src="images/work-6.avif" />
-              <h3>Getting The New York Times Magazine to jump off the page</h3>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.theatlantic.com/magazine/archive/2022/09/trump-administration-family-separation-policy-immigration/670604/"
-            >
-              <img
-                alt="A clipping that reads We need to take away the Children"
-                src="images/work-1.avif"
-              />
-              <h3>
-                The secret history of the U.S. government’s family-separation
-                policy
-              </h3>
-              <p class="small">🏅 2023 Pulitzer Prize</p>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.theatlantic.com/the-uyghur-chronicles/">
-              <img alt="Tahir Hamut Izgil" src="images/work-2.avif" />
-              <h3>One by one, my friends were sent to the camps</h3>
-              <p class="small">🏅 2022 Human Rights Press</p>
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.theatlantic.com/science/archive/2023/01/unique-nostalgia-space/672639/"
-            >
-              <img alt="" src="images/work-3.avif" />
-              <h3>The existential wonder of space</h3>
-              <p class="small">🏅 2023 American Astronomical Society</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <section class="grid section" id="philosophy">
-      <div class="grid-small">
-        <h2>Philosophy</h2>
-      </div>
-      <div class="grid-large">
-        <ul>
-          <!-- <li><strong>Do great work with great people</strong>: Work on projects worth working on with teams worth working for. Organizations are design documents.</li> -->
-          <li>
-            <h3>Ship fast, and iterate faster</h3>
-            <p>
-              Shipping quickly gets real products in front of real people so you
-              can listen, learn, and improve.
+      <ol>
+        <!-- Recent Work -->
+        <style>
+          .work a {
+            text-decoration: none;
+          }
+          .work a {
+            border-bottom: 1px solid var(--secondary-background-color);
+            display: flex;
+            gap: var(--main-padding);
+            padding: var(--main-padding) 0;
+          }
+          .work img {
+            width: 30%;
+          }
+          .work p {
+            width: calc(70% - 16px);
+          }
+        </style>
+        <li>
+          <input type="checkbox" id="work-toggle" />
+          <label class="text-huge" for="work-toggle"
+            ><span>01</span>Recent work</label
+          >
+          <div class="content work links" id="work-content">
+            <ul>
+              <li>
+                <a
+                  href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html"
+                >
+                  <img
+                    alt="White text on a black background that reads ‘The Coronavirus Outbreak F.A.Q‘"
+                    src="images/work-4.avif"
+                    loading="lazy"
+                  />
+                  <p class="text-regular">
+                    Answers to coronavirus questions powered by machine learning
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing"
+                >
+                  <img
+                    alt="A phone is pointed at a magazine showing a building"
+                    src="images/work-5.avif"
+                    loading="lazy"
+                  />
+                  <p class="text-regular">
+                    Working with universities to experiment with spatial
+                    computing
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html"
+                >
+                  <img
+                    alt="Three NYT magazine covers"
+                    src="images/work-6.avif"
+                    loading="lazy"
+                  />
+                  <p class="text-regular">
+                    Getting The New York Times Magazine to jump off the page
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.theatlantic.com/magazine/archive/2022/09/trump-administration-family-separation-policy-immigration/670604/"
+                >
+                  <img
+                    alt="A clipping that reads We need to take away the Children"
+                    src="images/work-1.avif"
+                    loading="lazy"
+                  />
+                  <p class="text-regular">
+                    The secret history of the U.S. government’s
+                    family-separation policy
+                  </p>
+                  <!-- <p class="small">🏅 2023 Pulitzer Prize</p> -->
+                </a>
+              </li>
+              <li>
+                <a href="https://www.theatlantic.com/the-uyghur-chronicles/">
+                  <img
+                    alt="Tahir Hamut Izgil"
+                    src="images/work-2.avif"
+                    loading="lazy"
+                  />
+                  <p class="text-regular">
+                    One by one, my friends were sent to the camps
+                  </p>
+                  <!-- <p class="small">🏅 2022 Human Rights Press</p> -->
+                </a>
+              </li>
+              <li>
+                <a
+                  style="border-bottom: 0; padding-bottom: 0"
+                  href="https://www.theatlantic.com/science/archive/2023/01/unique-nostalgia-space/672639/"
+                >
+                  <img alt="" src="images/work-3.avif" />
+                  <p class="text-regular">The existential wonder of space</p>
+                  <!-- <p class="small">🏅 2023 American Astronomical Society</p> -->
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Philosophy -->
+        <style>
+          .philosophy h3 {
+            padding-bottom: 16px;
+          }
+          .philosophy p {
+            border-bottom: 1px solid var(--secondary-background-color);
+            margin-bottom: var(--main-padding);
+            padding-bottom: var(--main-padding);
+          }
+          .philosophy p:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+        </style>
+        <li>
+          <input type="checkbox" id="philosophy-toggle" />
+          <label class="text-huge" for="philosophy-toggle"
+            ><span>02</span>Philosophy</label
+          >
+          <div class="content philosophy" id="philosophy-content">
+            <h3 class="text-large">Do great work with great people</h3>
+            <p class="text-regular">
+              Work on projects worth working on with teams worth working for.
+              Organizations are design documents.
             </p>
-          </li>
-          <li>
-            <h3>Document and share</h3>
-            <p>
-              Sharing says you believe everyone has something to contribute and
-              gives people the knowledge to do so.
+            <h3 class="text-large">Document and share everything</h3>
+            <p class="text-regular">
+              Sharing documentation says you believe everyone has something to
+              contribute and gives people the knowledge to do so.
             </p>
-          </li>
-          <li>
-            <h3>Small teams get stuff done</h3>
-            <p>
-              The best products happen when cross-functional teams are empowered
-              and trusted to work together.
+            <h3 class="text-large">Ship fast but iterate faster</h3>
+            <p class="text-regular">
+              Shipping is the beginning. The next steps are the most important,
+              when we take the time to listen, learn, and improve.
             </p>
-          </li>
-          <li>
-            <h3>Build systems</h3>
-            <p>
-              A system-based approach goes beyond a feature to understand how to
-              improve both internal and external experiences.
-            </p>
-          </li>
-          <li>
-            <h3>Involve everyone</h3>
-            <p>
-              Holistic approaches empower everyone to join the production
-              process and learn from each other.
-            </p>
-          </li>
-          <li>
-            <h3>Take care of each other</h3>
-            <p>
+            <h3 class="text-large">Take care of each other, and yourself</h3>
+            <p class="text-regular">
               Nothing happens without us. If we’re not healthy we can’t help
               each other. We burn out alone or we spark together.
             </p>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <section class="grid experience section" id="resume">
-      <div class="grid-small">
-        <h2>Experience</h2>
-      </div>
-      <div class="grid-large">
-        <h3>The Atlantic, <span>Senior Editor</span></h3>
-        <p>
-          Started a storytelling team of engineers and designers within the
-          newsroom to work on The Atlantic’s most ambitious reporting, including
-          tracking every migrant child separated, which won a 2023 Pulitzer.
-        </p>
+            <!--
+            - Focus on your Cs before your Ps: Put collaboration, communication,
+            and community before processes, products, and plans. Culture is your
+            product. - Small teams get stuff done: The best products happen when
+            cross-functional teams are empowered and trusted to work together. -
+            Build systems: A system-based approach goes beyond a feature to
+            understand how to improve both internal and external experiences. -
+            Involve everyone: Holistic approaches empower everyone to join the
+            production process and learn from each other. - Invest in
+            support systems: Every person helping another person has a
+            multiplier effect. Support allows us to focus on our strengths while
+            improving each other.
+            -->
+          </div>
+        </li>
 
-        <h3>The New York Times, <span>Creative Technologist</span></h3>
-        <p>
-          The Times brought me on as a contractor to reimagine what an
-          <a href="https://rd.nytimes.com/">R&D team</a> could look like within
-          a modern newsroom. We explored how emerging technologies can be
-          applied in service of journalism working with companies such as
-          <a
-            href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html"
-            >Google</a
-          >, <a href="https://www.newsprovenanceproject.com/">IBM</a>, and Meta
-          to build tools for journalists.
-        </p>
-        <p>
-          On my second tour, The Times asked me to quickly build a content
-          mangement system for a new product, but I ended up staying on for
-          another year to create a
-          <a
-            href="https://rd.nytimes.com/projects/working-with-universities-to-experiment-with-spatial-computing"
-            >college mentorship program</a
+        <!-- Resume -->
+        <style>
+          .resume h3 {
+            color: var(--secondary-text-color);
+            margin-bottom: 8px;
+          }
+          .resume ul {
+            list-style: disc;
+            margin-bottom: var(--main-padding);
+          }
+          .resume li {
+            padding: 8px 0;
+          }
+        </style>
+        <li>
+          <input type="checkbox" id="resume-toggle" />
+          <label class="text-huge" for="resume-toggle"
+            ><span>03</span>Resume</label
           >
-          before pivoting during the early pandemic to
-          <a
-            href="https://www.nytimes.com/interactive/2020/world/coronavirus-tips-advice.html"
-            >apply machine learning to aid reporters</a
-          >.
-        </p>
+          <div class="content resume" id="resume-content">
+            <h3 class="text-regular text-white">Highlights</h3>
+            <ul>
+              <li>
+                Co-founded Vox.com, which had 20,000 unique visitors within its
+                first six months
+              </li>
+              <li>
+                Created a unified design system for more than 200 newspaper,
+                radio, and broadcast outlets
+              </li>
+              <li>
+                Won two SND President’s awards for contributions to the field of
+                design
+              </li>
+              <li>
+                Built a site to help furloughed journalists that was named best
+                of the year by Editor & Publisher
+              </li>
+            </ul>
 
-        <h3>Vox.com, <span>Co-founder</span></h3>
-        <p>
-          I co-founded <a href="https://www.vox.com">Vox.com</a>, drawing the
-          original sketches on a napkin and hand coded the initial site daily. I
-          worked closely with journalists to design and build more than 50 tools
-          including open source applications used by thousands of organizations.
-          While there I started and led various teams including data, graphics,
-          tools, and storytelling.
-        </p>
-        <blockquote>
-          “The difference is that Vox is open to experimentation, it demands
-          rapid iteration, and it puts technology-shaping people on par with
-          word-shaping people. The difference is that, in many traditional
-          newsrooms, changing the UI on a page &hellip; would have taken
-          multiple meetings where the tech side’s knowledge would likely have
-          been undervalued. It’s a corporate ethos and a permission structure
-          that means good ideas don’t have to get bottled up. It’s being the
-          kind of place that would build Chorus in the first place. That is
-          Vox’s edge, and you can’t buy that off the shelf.” &mdash;
-          <a
-            href="http://www.niemanlab.org/2014/04/vox-is-publishing-some-of-its-stories-and-the-interviews-behind-them-in-parallel/"
-            >Nieman Lab</a
+            <h3 class="text-regular">
+              <span class="text-white">The Atlantic,</span>
+              <span>Senior Editor</span>
+            </h3>
+            <ul>
+              <li>
+                Led a cross-functional team within the newsroom to work on The
+                Atlantic's most ambitious storytelling
+              </li>
+              <li>
+                Worked on dozens of stories including
+                <a
+                  href="https://www.theatlantic.com/magazine/archive/2022/09/trump-administration-family-separation-policy-immigration/670604/"
+                  >tracking every migrant child separated</a
+                >, which won a 2023 Pulitzer
+              </li>
+            </ul>
+
+            <h3 class="text-regular">
+              <span class="text-white">The New York Times,</span> Creative
+              Technologist
+            </h3>
+            <ul>
+              <li>
+                Helped start an R&D team that grew from two to 30+ people and
+                revenues into the millions, working with companies such as Meta,
+                IBM, and Google
+              </li>
+              <li>
+                Built AI tools to improve coverage during the World Cup, create
+                better experiences for the magazine, and aid reporters during
+                the pandemic
+              </li>
+            </ul>
+
+            <h3 class="text-regular">
+              <span class="text-white">Vox.com,</span> Co-founder
+            </h3>
+            <ul>
+              <li>
+                Drew the original sketches for Vox.com on a napkin and hand
+                coded the initial site daily
+              </li>
+              <li>
+                Designed more than 50 tools to empower journalists, including
+                dozens of new storytelling formats, command-line interfaces for
+                developers, and an open source social tool used by hundreds of
+                companies
+              </li>
+            </ul>
+            <blockquote class="text-regular">
+              “The difference is that Vox is open to experimentation, it demands
+              rapid iteration, and it puts technology-shaping people on par with
+              word-shaping people. The difference is that, in many traditional
+              newsrooms, changing the UI on a page &hellip; would have taken
+              multiple meetings where the tech side’s knowledge would likely
+              have been undervalued. It’s a corporate ethos and a permission
+              structure that means good ideas don’t have to get bottled up. It’s
+              being the kind of place that would build Chorus in the first
+              place. That is Vox’s edge, and you can’t buy that off the shelf.”
+              &mdash;
+              <a
+                href="http://www.niemanlab.org/2014/04/vox-is-publishing-some-of-its-stories-and-the-interviews-behind-them-in-parallel/"
+                >Nieman Lab</a
+              >
+            </blockquote>
+
+            <h3 class="text-regular">
+              <span class="text-white">The Washington Post,</span> Director of
+              User Experience
+            </h3>
+            <ul>
+              <li>
+                Rethought all digital systems with a focus on innovation
+                including creating a highly profitable CMS
+              </li>
+              <li>
+                Designed dozens of new products, such as Know More, which became
+                the top vertical in three weeks, live, which averaged more
+                traffic than the rest of the site combined, and an app for fact
+                checking video in real time, which was called “the future of
+                news”
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <!-- Skills -->
+        <li>
+          <input type="checkbox" id="skills-toggle" />
+          <label class="text-huge" for="skills-toggle"
+            ><span>04</span>Skills</label
           >
-        </blockquote>
+          <div class="content skills" id="skills-content">
+            <p class="text-regular">
+              <span class="text-white">Design & Development:</span> Tools, New
+              Products, Innovation, Rapid prototyping, Websites, Apps, Content
+              Management Systems, Accessibility, Analytics, WordPress;
+              <span class="text-white">Emerging technologies:</span> Natural
+              Language Processing, Machine learning, AI, Spatial Computing,
+              Voice interfaces, Bots;
+              <span class="text-white">Resources & Training:</span> Design
+              thinking, Digital skills, Brainstorming, Creativity, Idea
+              generation; <span class="text-white">Research & Strategy:</span>
+              Culture, Operations, Creative, Editorial, Content, Video, Growth,
+              Leadership
+            </p>
+          </div>
+        </li>
 
-        <h3>The Washington Post, <span>Director of User Experience</span></h3>
-        <p>
-          Rethought all digital systems with a focus on innovation including
-          creating Arc, a highly profitable CMS. I led a team that invented
-          dozens of new products and tools, such as
-          <a
-            href="https://www.buzzfeednews.com/article/jwherrman/memo-it-took-three-weeks-for-the-washington-posts-viral-site"
-            >Know More</a
-          >, which became the top vertical in three weeks, our live platforms,
-          which averaged more traffic than the rest of the site combined, and
-          <a
-            href="https://readwrite.com/truth-teller-an-automated-political-fact-checking-app/"
-            >an app for fact checking video in real time</a
-          >, which was called “the future of news.”
-        </p>
-      </div>
-    </section>
-    <section class="grid skills section" id="skills">
-      <div class="grid-small">
-        <h2>Skills</h2>
-      </div>
-      <div class="grid-large">
-        <h3>Design & Development</h3>
-        <p>
-          Tools, New Products, Innovation, Websites, Apps, Content Management
-          Systems, Accessibility, Analytics, WordPress
-        </p>
-        <h3>Emerging technologies</h3>
-        <p>
-          Natural Language Processing, Machine learning, AI, Spatial Computing,
-          Voice interfaces, Bots
-        </p>
-        <h3>Resources & Training</h3>
-        <p>
-          Design thinking, Digital skills, Brainstorming, Creativity, Idea
-          Generation
-        </p>
-        <h3>Research & Strategy</h3>
-        <p>
-          Culture, Operations, Creative, Editorial, Content, Video, Growth,
-          Leadership
-        </p>
-      </div>
-    </section>
-    <div class="extras grid" id="extras">
-      <style>
-        .extras {
-          margin-top: var(--main-padding);
-        }
-        .extras .grid-small {
-          padding-top: var(--main-padding);
-        }
-      </style>
-      <div class="grid-small">
-        <h2>Speaking</h2>
-        <!-- <p>I’m always open to speaking opportunities. I give talks on emerging technologies, the intersection of product and media, design thinking, organizational design, and workplace culture. Previously, I’ve presented at TedX Poynter, WordCamp USA, Society for News Design, and Online News Association.</p> -->
-        <ul>
-          <li>
-            <a href="https://www.youtube.com/watch?v=bYOOCG1gAaM"
-              >Empathy can fix the modern newsroom</a
-            >
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=NDShr8lwHOI"
-              >One year of Vox with Ezra Klein and Yuri Victor</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://wordpress.tv/2013/07/29/yuri-victor-why-the-washington-post-uses-wordpress/"
-              >Why the Washington Post uses WordPress</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="grid-small">
-        <h2>Mentions</h2>
-        <ul>
-          <li>
-            <a
-              href="http://www.poynter.org/2014/4-tips-for-creating-efficient-newsrooms-by-voxs-yuri-victor/264663/"
-              >Four tips for creating better newsrooms</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://product.voxmedia.com/2015/10/26/9610910/better-workplaces-forge-conference"
-              >Building more rounded companies and people</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://nyustudio20.wordpress.com/2014/12/03/interview-with-vox-medias-yuri-victor/"
-              >Designing a happy, nimble, digital newsroom</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="grid-small">
-        <h2>Side projects</h2>
-        <ul>
-          <li>
+        <!-- Speaking -->
+        <li>
+          <input type="checkbox" id="speaking-toggle" />
+          <label class="text-huge" for="speaking-toggle"
+            ><span>05</span>Speaking</label
+          >
+          <div class="content speaking" id="speaking-content">
+            <p class="text-regular">
+              <span class="text-white"
+                >I’m always open to speaking opportunities.</span
+              >
+              I give talks on emerging technologies, the intersection of product
+              and media, design thinking, organizational design, and workplace
+              culture. Previously, I’ve presented at
+              <a href="https://www.youtube.com/watch?v=bYOOCG1gAaM"
+                >TedX Poynter</a
+              >,
+              <a
+                href="https://wordpress.tv/2013/07/29/yuri-victor-why-the-washington-post-uses-wordpress/"
+                >WordCamp USA</a
+              >, and
+              <a href="https://www.youtube.com/watch?v=NDShr8lwHOI"
+                >The Society for News Design</a
+              >.
+            </p>
+          </div>
+        </li>
+
+        <!-- Side Projects -->
+        <style>
+          .side a {
+            padding: var(--main-padding) 0;
+            text-decoration: none;
+          }
+        </style>
+        <li>
+          <input type="checkbox" id="side-projects-toggle" />
+          <label class="text-huge" for="side-projects-toggle"
+            ><span>06</span>Side Projects</label
+          >
+          <div class="content links side" id="side-projects-content">
             <a
               href="https://www.dailydot.com/unclick/dude-gives-internet-control-personal-twitter-account/"
-              >Man asks rest of internet to tweet as him</a
-            >
-          </li>
-          <li>
+              ><h3 class="text-regular">
+                Man asks rest of internet to tweet as him
+              </h3>
+            </a>
             <a href="https://github.com/yurivictor/typebetter"
-              >Type better: Auto-correct punctuation while a user types</a
+              ><h3 class="text-regular">
+                Type better: Auto-correct punctuation while a user types
+              </h3></a
             >
-          </li>
-          <li>
             <a href="https://github.com/voxmedia/meme"
-              >Meme tool: Create social sharing images</a
+              ><h3 class="text-regular">
+                Meme tool: Create social sharing images
+              </h3></a
             >
-          </li>
-        </ul>
-      </div>
-    </div>
+          </div>
+        </li>
+      </ol>
+    </nav>
     <section class="contact section" id="contact">
       <style>
         .contact {
@@ -564,39 +590,44 @@
           justify-content: center;
           text-align: center;
         }
-        .button {
+        .contact p {
+          padding: var(--main-padding) 0;
+        }
+        .contact button {
           background-color: rgba(255, 221, 91, 1);
           border: none;
           border-radius: 4px;
           color: black;
           font-weight: 700;
           letter-spacing: 1px;
-          margin-top: var(--main-padding);
           text-transform: uppercase;
           transition: all 500ms;
         }
-        .button:active,
-        .button:focus,
-        .button:hover {
+        .contact button:active,
+        .contact button:focus,
+        .contact button:hover {
           background-color: rgba(255, 251, 177, 1);
           box-shadow: 0 2px 2px rgba(255, 255, 255, 0.6);
         }
-        .button a {
+        .contact a {
           display: inline-block;
           padding: 16px var(--main-padding);
           text-decoration: none;
         }
+        @media (max-width: 820px) {
+          .contact br {
+            display: none !important;
+          }
+        }
       </style>
       <h2 class="text-large">Interested in working together?</h2>
       <p class="text-regular">
-        I’m available for contract or full-time work, especially if it involves
-        journalism or food.
+        I’m available for contract or full-time work, <br />especially if it
+        involves journalism or food.
       </p>
-      <p>
-        <button class="button">
-          <a href="mailto:hi@yurivictor.com">Email me</a>
-        </button>
-      </p>
+      <button>
+        <a href="mailto:hi@yurivictor.com">Email me</a>
+      </button>
     </section>
     <footer class="section footer">
       <style>
@@ -609,7 +640,8 @@
           font-size: 14px;
           text-decoration: none;
         }
-        .footer .grid {
+        .footer ul {
+          display: flex;
           gap: var(--main-padding);
         }
         .footer li:last-child {
@@ -624,5 +656,23 @@
         <li><a href="#header">Back to top ↑</a></li>
       </ul>
     </footer>
+    <script>
+      // JavaScript to handle TOC functionality
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", function () {
+          const contentId = this.getAttribute("id").replace(
+            "-toggle",
+            "-content"
+          );
+          const content = document.getElementById(contentId);
+          if (this.checked) {
+            content.style.display = "grid";
+          } else {
+            content.style.display = "none";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
