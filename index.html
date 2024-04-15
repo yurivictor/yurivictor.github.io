@@ -108,6 +108,7 @@
         }
         .content {
           margin-left: 0 !important;
+          padding: 64px 0 0 0 !important;
         }
         .footer ul {
           display: block !important;
@@ -167,7 +168,7 @@
 
         /* Style for the content label */
         label {
-          cursor: pointer;
+          cursor: zoom-in;
           display: inline-block;
           position: relative;
           width: 100%;
@@ -195,46 +196,50 @@
         input:checked + label::after {
           transform: rotate(45deg);
         }
-        .link {
-          border-bottom: 1px solid var(--secondary-background-color);
-          display: block;
-          padding: var(--main-padding) 0;
-          text-decoration: none;
-        }
-        .links .link:last-child {
-          border-bottom: 0;
-        }
         .skills .text-regular,
         .speaking .text-regular {
           color: var(--secondary-text-color);
+        }
+        @media (max-width: 820px) {
+          .toc {
+            margin: 0 auto;
+            padding-top: 0;
+          }
         }
       </style>
       <ol>
         <!-- Recent Work -->
         <style>
-          .work a {
+          .links a {
             text-decoration: none;
           }
-          .work a {
+          .links a {
             border-bottom: 1px solid var(--secondary-background-color);
             display: flex;
             gap: var(--main-padding);
             padding: var(--main-padding) 0;
           }
-          .work img {
+          .links img {
             width: 30%;
           }
-          .work p {
+          .links li:first-child a {
+            padding-top: 0;
+          }
+          .links li:last-child a {
+            border-bottom: 0;
+            padding-bottom: 0;
+          }
+          .links p {
             width: calc(70% - 16px);
           }
           @media (max-width: 820px) {
-            .work a {
+            .links a {
               display: block;
             }
-            .work img {
+            .links img {
               display: none;
             }
-            .work p {
+            .links p {
               width: 100%;
             }
           }
@@ -346,6 +351,15 @@
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
+          }
+          @media (max-width: 820px) {
+            .philosophy .text-large {
+              font-size: 18px;
+              padding-bottom: 8px;
+            }
+            .philosophy .text-regular {
+              font-size: 14px;
+            }
           }
         </style>
         <li>
@@ -570,34 +584,36 @@
         </li>
 
         <!-- Side Projects -->
-        <style>
-          .side a {
-            padding: var(--main-padding) 0;
-            text-decoration: none;
-          }
-        </style>
         <li>
           <input type="checkbox" id="side-projects-toggle" />
           <label class="text-huge" for="side-projects-toggle"
             ><span>06</span>Side projects</label
           >
           <div class="content links side" id="side-projects-content">
-            <a
-              href="https://www.dailydot.com/unclick/dude-gives-internet-control-personal-twitter-account/"
-              ><h3 class="text-regular">
-                Man asks rest of internet to tweet as him
-              </h3>
-            </a>
-            <a href="https://github.com/yurivictor/typebetter"
-              ><h3 class="text-regular">
-                Type better: Auto-correct punctuation while a user types
-              </h3></a
-            >
-            <a href="https://github.com/voxmedia/meme"
-              ><h3 class="text-regular">
-                Meme tool: Create social sharing images
-              </h3></a
-            >
+            <ul>
+              <li>
+                <a
+                  href="https://www.dailydot.com/unclick/dude-gives-internet-control-personal-twitter-account/"
+                  ><p class="text-regular">
+                    Man asks rest of internet to tweet as him
+                  </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/yurivictor/typebetter"
+                  ><p class="text-regular">
+                    Type better: Auto-correct punctuation while a user types
+                  </p></a
+                >
+              </li>
+              <li>
+                <a href="https://github.com/voxmedia/meme"
+                  ><p class="text-regular">
+                    Meme tool: Create social sharing images
+                  </p></a
+                >
+              </li>
+            </ul>
           </div>
         </li>
       </ol>
@@ -637,6 +653,9 @@
           text-decoration: none;
         }
         @media (max-width: 820px) {
+          .contact {
+            margin-top: 0;
+          }
           .contact br {
             display: none !important;
           }
