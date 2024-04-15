@@ -168,6 +168,7 @@
         label {
           cursor: pointer;
           display: inline-block;
+          position: relative;
           width: 100%;
         }
         label span {
@@ -177,13 +178,21 @@
           font-size: 64px;
           width: 20%;
         }
+        label::after {
+          display: block;
+          content: "+";
+          position: absolute;
+          top: 5px;
+          transition: all ease-in-out 100ms;
+          right: 0;
+        }
         .content {
           display: none;
           margin-left: 20%;
           padding: var(--secondary-padding) 0;
         }
-        input:checked + .content {
-          display: grid;
+        input:checked + label::after {
+          transform: rotate(45deg);
         }
         .link {
           border-bottom: 1px solid var(--secondary-background-color);
@@ -216,6 +225,15 @@
           }
           .work p {
             width: calc(70% - 16px);
+          }
+          @media (max-width: 820px) {
+            .work a {
+              display: block;
+            }
+            .work img,
+            .work p {
+              width: 100%;
+            }
           }
         </style>
         <li>
@@ -602,7 +620,7 @@
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
-          transition: all 500ms;
+          transition: all ease-in-out 500ms;
         }
         .contact button:active,
         .contact button:focus,
@@ -662,13 +680,14 @@
       const checkboxes = document.querySelectorAll('input[type="checkbox"]');
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("change", function () {
+          console.log(this.getAttribute("id"));
           const contentId = this.getAttribute("id").replace(
             "-toggle",
             "-content"
           );
           const content = document.getElementById(contentId);
           if (this.checked) {
-            content.style.display = "grid";
+            content.style.display = "block";
           } else {
             content.style.display = "none";
           }
