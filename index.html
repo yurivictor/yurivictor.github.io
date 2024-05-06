@@ -37,6 +37,7 @@
         --secondary-background-color: rgba(255, 255, 255, 0.4);
         --secondary-text-color: rgba(255, 255, 255, 0.6);
         --secondary-padding: 64px;
+        --serif: "ABC Gaisyr", "Times New Roman", Times, serif;
       }
       ::selection {
         background-color: rgba(255, 221, 91, 0.6);
@@ -143,14 +144,158 @@
       <h2 class="text-regular">
         <span class="text-white">Hello. I’m Yuri Victor</span>, a creative
         technologist in New York working on emerging platforms. Over the past
-        two decades I’ve designed dozens of ground-breaking tools, built
-        software used by hundreds of organizations, and led cross-functional
-        teams at the largest media companies, including co-founding Vox.com.
-        <br /><br />
-        I like to make great products with great people. How can I help you?
+        two decades I’ve designed hundreds of web sites, built dozens of
+        ground-breaking tools, built used by hundreds of organizations, and
+        worked with companies like The New York Times, and The Washington Post,
+        including co-founding Vox.com. <br /><br />
+        I love to make great products with great people. How can I help you?
         <a href="#contact">Let’s connect</a> and find out.
       </h2>
     </header>
+    <style>
+      .portfolio {
+      }
+      .portfolio img {
+        margin: var(--main-padding) 0;
+        width: 100%;
+      }
+      .portfolio h2,
+      .item-text-categories p strong {
+        font-size: 16px;
+        text-transform: uppercase;
+      }
+      .item-text-paragraph p {
+        font-family: var(--serif);
+      }
+      .yellow {
+        background-color: #fff400;
+        color: black;
+      }
+      .item {
+        padding: var(--main-padding);
+      }
+      .item-text {
+        display: flex;
+        justify-content: space-between;
+      }
+      .item-text-categories,
+      .item-text-paragraph {
+        width: 40%;
+      }
+    </style>
+    <section class="portfolio">
+      <div class="yellow item">
+        <h1 class="text-large">Starting a new media company</h1>
+        <img load="lazy" src="images/portfolio-vox-obama-cover.png" />
+        <div class="item-text">
+          <div class="item-text-paragraph">
+            <h2>About</h2>
+            <p>
+              I <strong>co-founded</strong> Vox.com with a group of friends from
+              The Washington Post, where we led digital. We believed the way we
+              told stories online was broken, that the internet was ready for a
+              new site that provided depth, and that technology was critical to
+              our success.
+            </p>
+          </div>
+          <div class="item-text-categories">
+            <blockquote>
+              “Vox is for the brainiac nerd types.” <cite>— Barack Obama</cite>
+            </blockquote>
+            <p>
+              <strong>Outcomes:</strong> At the end of year one, the site
+              averaged 24 million uniques per month and was in the top 10
+              digially native news websites.
+            </p>
+            <p><strong>Role:</strong> Editorial design, storytelling, UI/UX</p>
+            <p>
+              <strong>Visit:</strong> <a href="https://www.vox.com/">Vox.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      .cards {
+        display: grid;
+        grid-area: 2 / 2 / 3 / 12;
+        grid-column-gap: var(--main-padding);
+        grid-row-gap: var(--main-padding);
+        grid-template-rows: 1fr;
+        grid-template-columns: 4fr 3fr 3fr;
+        grid-auto-columns: 1fr;
+        margin-top: 3rem;
+      }
+      .card {
+        background-color: #151617;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        padding: var(--main-padding);
+      }
+      .card img {
+        margin: 16px 0;
+      }
+      .card p {
+        font-family: "ABC Gaisyr", "Times New Roman", Times, serif;
+        font-size: 18px;
+        padding-top: 16px;
+      }
+      .card p span {
+        font-family: Helvetica, sans-serif;
+        font-weight: 700;
+      }
+      .card-1 {
+        background-color: #fff302;
+        color: black;
+        grid-area: 1 / 1 / 3 / 2;
+      }
+      .card-1 img {
+        max-width: 100%;
+        width: 100%;
+      }
+      .card-2 {
+        grid-area: 1 / 2 / 2 / 4;
+      }
+      .card-3 {
+        grid-area: 2 / 2 / 3 / 3;
+      }
+      .card-3 img {
+        width: 250px;
+      }
+      .card-4 {
+        grid-area: 2 / 3 / 3 / 4;
+      }
+    </style>
+    <section class="best-work cards" id="best-work">
+      <div class="card card-1">
+        <h1 class="text-large">Starting a new media company</h1>
+        <img src="images/logo-vox.png" />
+        <p>
+          I co-founded Vox.com with a group of friends from The Washington Post,
+          where we led digital. We believed the way we told stories online was
+          broken, that the internet was ready for a new site that provided
+          depth, and that technology was critical to our success.
+        </p>
+        <p><span>Role:</span> Frontend UI/UX design</p>
+        <p><span>Visit:</span> <a href="https://www.vox.com">Vox.com</a></p>
+      </div>
+      <div class="card card-2">2</div>
+      <div class="card card-3">
+        <h1>Getting NYT Magazine to jump off the page</h1>
+        <img src="images/work-6.avif" />
+        <p>Built an internal CMS in 7 days to allow reporters to someting.</p>
+        <p><span>Role:</span> CMS UX/UI/development</p>
+        <p>
+          <span>About:</span>
+          <a
+            href="https://www.nytimes.com/2020/03/14/reader-center/magazine-songs-interactive.html"
+            >Learn more</a
+          >
+        </p>
+      </div>
+      <div class="card card-4">4</div>
+    </section>
     <nav class="section toc" id="toc">
       <style>
         ol {
@@ -699,6 +844,13 @@
         <li><a href="#header">Back to top ↑</a></li>
       </ul>
     </footer>
+    <style>
+      .best-work,
+      .portfolio,
+      .toc {
+        display: none;
+      }
+    </style>
     <script>
       // JavaScript to handle TOC functionality
       const checkboxes = document.querySelectorAll('input[type="checkbox"]');
