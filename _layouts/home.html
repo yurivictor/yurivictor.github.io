@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%} {{ content }} {% for collection in site.collections %} {% if
+  collection.label != 'posts' %}
+  <h2>{{ collection.label }}</h2>
+  {% for project in site[collection.label] %}
+  <br /><a href="{{ project.url }}">{{ project.title }}</a>
+  {% endfor %} {% endif %} {% endfor %}
+</div>
