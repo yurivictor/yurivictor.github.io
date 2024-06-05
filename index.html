@@ -138,8 +138,8 @@
       </style>
       <p>
         Always curious. <br />
-        Location: New York <br />
-        Battery: <span id="battery-level">Loading...</span><br />
+        <span id="location">Loading ...</span><br />
+        <span id="battery-level">Loading...</span><br />
       </p>
       <h1 class="text-regular">
         <span class="text-white">I like to make things,</span> whether it’s
@@ -191,7 +191,7 @@
     </header>
 
     <script>
-      async function fetchBatteryLevel() {
+      async function fetchLocalData() {
         try {
           const response = await fetch(
             "https://us-central1-projects-342417.cloudfunctions.net/battery"
@@ -202,17 +202,22 @@
             );
           }
           const data = await response.json();
+          // Update battery level
           document.getElementById(
             "battery-level"
-          ).textContent = `${data.batteryLevel}%`;
+          ).textContent = `Battery: ${data.batteryLevel}%`;
+          // Update location
+          document.getElementById(
+            "location"
+          ).textContent = `Location: ${data.location}`;
         } catch (error) {
           console.error("There was a problem with the fetch operation:", error);
-          document.getElementById("battery-level").textContent =
-            "Error fetching battery level";
+          document.getElementById("battery-level").html = "";
+          document.getElementById("location").html = "";
         }
       }
 
-      fetchBatteryLevel();
+      fetchLocalData();
     </script>
   </body>
 </html>
