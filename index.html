@@ -52,17 +52,6 @@
       }
       .second {
         bottom: 0;
-}
-      h2 {
-        background-color: black;
-        box-decoration-break: clone;
-        display: inline;
-        color: white;
-        left: 55%;
-        font-size: 18px;
-        padding: 0.2em 0.5em; 
-        position: absolute;
-        top: 45%;
       }
       .egg {
         font-size: 64px;
@@ -122,9 +111,32 @@
         top: 50%;
         width: 150px;
       }
+      .egg-wrapper {
+        align-items: center;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+      }
+      .egg-text {
+        background: black;
+        color: white;
+        overflow: hidden;
+        padding: 10px 0;
+        width: 150px;
+      }
+      .egg-text h2 {
+        animation: marquee 10s linear infinite;
+        display: inline-block;
+        font-size: 18px;
+        white-space: nowrap;
+      }
+      @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
       @media (max-width: 768px) {
-        h1 {
-          font-size: 18px;
+        .first, .second {
+          font-size: 24px;
         }
       }
     </style>
@@ -145,7 +157,11 @@
       </ul>
       <h1 class="second"><span>Creative</span <span>Technologist</span></h1>
       <div class="egg">🥚</div>
-      <h2>getting <br />ready <br />to <br />hatch</h2>
+      <div class="egg-wrapper">
+        <div class="egg-text">
+          <h2><span>getting</span> <span>ready</span> <span>to</span> <span>hatch</span></h2>
+        </div>
+      </div>
     </main>
   </body>
 </html>
